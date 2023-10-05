@@ -2,6 +2,8 @@ import type { StorageManager } from "native-base";
 import { extendTheme } from "native-base";
 import { Appearance } from "react-native";
 
+import { storage } from "@/db/storage";
+
 const config = {
   useSystemColorMode: false,
   initialColorMode: "light"

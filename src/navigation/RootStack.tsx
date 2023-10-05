@@ -1,15 +1,18 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "native-base";
 
 import type { RootStackParamList } from "./types";
 import BottomTabNavigator from "./BottomTabs";
+
+import { AddTaskScreen } from "@/screens/AddTask";
 
 const { Navigator, Group, Screen } =
   createNativeStackNavigator<RootStackParamList>();
 
 export function RootNavigator() {
   const { t } = useTranslation();
-  //   const { surface } = useTheme().colors;
+  const { surface } = useTheme().colors;
   return (
     <Navigator>
       <Group screenOptions={{ headerShown: false }}>
@@ -22,7 +25,7 @@ export function RootNavigator() {
           component={Overview}
         /> */}
       </Group>
-      {/*   <Screen
+      <Screen
         options={{
           title: t("create-new-task"),
           presentation: "modal",
@@ -33,7 +36,7 @@ export function RootNavigator() {
         }}
         name="AddTask"
         component={AddTaskScreen}
-      /> */}
+      />
     </Navigator>
   );
 }

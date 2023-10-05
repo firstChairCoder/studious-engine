@@ -8,9 +8,10 @@ import dayjs from "dayjs";
 import CheckBox from "./check-box";
 import Chip from "./chip";
 
-import type Task from "@/db/models/Task";
+import type Task from "@/db/models/task";
 import useAccent from "@/hooks/useAccent";
 import withDB from "@/db/models/withDB";
+import type List from "@/db/models/list";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
 
 interface TaskCardProps {
   task: Task;
-  list: any;
+  list: List;
   onPress: () => void;
   animationDelay?: number;
   withDate?: boolean;
@@ -102,11 +103,12 @@ const TaskCard = ({
   );
 };
 
-export default withDB<TaskCardProps, { task: Task }>(
+export default withDB<TaskCardProps, { task: Task; list: List }>(
   TaskCard,
   ["task"],
   ({ task }) => ({
-    task
-    // list: task.list
+    task,
+    // list: ""
+    list: task.list
   })
 );

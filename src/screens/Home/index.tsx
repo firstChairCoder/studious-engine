@@ -15,12 +15,12 @@ import type {
   useNavigationProps
 } from "@/navigation/types";
 import { Fab, StatusBar, TaskCard } from "@/components";
+import type Task from "@/db/models/task";
 import withDB from "@/db/models/withDB";
-import type Task from "@/db/models/Task";
 import { getIntervalDate, queryTasks } from "@/db/queries";
 import { Columns } from "@/db/models/schema";
 
-interface TaskSectionListProps {
+type TaskSectionListProps = {
   today: Task[];
   upcoming: Task[];
   tomorrow: Task[];
@@ -28,7 +28,7 @@ interface TaskSectionListProps {
   options: {
     tasksWithoutDateAsToday?: boolean;
   };
-}
+};
 
 const RawSection = ({
   today,
@@ -39,12 +39,12 @@ const RawSection = ({
   const { t } = useTranslation();
   const nav = useNavigation<useNavigationProps>();
   const onPress = useCallback(async (task: Task) => {
-    // const list = await task.list.fetch();
-    // if (!list) {
-    //   return;
-    // }
-    // nav.navigate("Task", { taskID: task.id, theme: list.theme });
-    nav.navigate("Task", { taskID: task.id });
+    const list = await task.list.fetch();
+    if (!list) {
+      return;
+    }
+    nav.navigate("Task", { taskID: task.id, theme: list.theme });
+    // nav.navigate("Task", { taskID: task.id, theme: list });
   }, []);
   return (
     <SectionList

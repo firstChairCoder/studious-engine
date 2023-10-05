@@ -14,6 +14,8 @@ import { default as ar } from "./ar.json";
 import { default as en } from "./en.json";
 import { languages, setCalendarLanguage } from "./langs";
 
+import { storage } from "@/db/storage";
+
 i18n
   .use(initReactI18next)
   .use(intervalPlural)
@@ -24,7 +26,7 @@ i18n
     load: "languageOnly"
   });
 export const changeLanguage = (lang: string) => {
-  //   storage.set("lang", lang);
+  storage.set("lang", lang);
   const { isRTL } = I18nManager;
   if (isRTL) {
     if (languages[lang].type !== "rtl") {
