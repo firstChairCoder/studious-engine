@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.md.task-man-rn"
+      "bundleIdentifier": "com.md.taskmanrn"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,7 +28,12 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-localization"
+      "expo-localization",
+      ["expo-notifications",
+    {
+      "icon": "./assets/notification-icon.png"
+    }
+  ]
     ]
   }
 }
