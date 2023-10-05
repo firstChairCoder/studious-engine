@@ -6,7 +6,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 import useColorMode from "./hooks/useColorScheme";
 
-import theme, { colorModeManager, DARK_MODE } from "@/theme";
+import theme, { DARK_MODE } from "@/theme";
 
 type ProviderProps = {
   children: ReactNode;
@@ -29,7 +29,7 @@ export default function Providers({ children }: ProviderProps) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider style={{ backgroundColor: t.colors.background }}>
-        <NativeBaseProvider theme={t} colorModeManager={colorModeManager}>
+        <NativeBaseProvider theme={t}>
           <BottomSheetModalProvider>{children}</BottomSheetModalProvider>
         </NativeBaseProvider>
       </SafeAreaProvider>

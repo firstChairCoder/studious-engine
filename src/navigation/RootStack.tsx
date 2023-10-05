@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
 
 import type { RootStackParamList } from "./types";
+import BottomTabNavigator from "./BottomTabs";
 
 const { Navigator, Group, Screen } =
   createNativeStackNavigator<RootStackParamList>();
