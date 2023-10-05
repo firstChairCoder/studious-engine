@@ -4,13 +4,14 @@ import { useFocusEffect } from "@react-navigation/native";
 import { setBackgroundColorAsync } from "expo-navigation-bar";
 import { useColorMode, useTheme } from "native-base";
 import { useTranslation } from "react-i18next";
+import { Platform } from "react-native";
+
 import {
   CalendarIcon,
   HomeIcon,
   ListIcon,
   SettingsIcon
-} from "assets/tab-bar-icons";
-
+} from "../../assets/tab-bar-icons";
 import type { RootTabParamList } from "./types";
 
 import { HomeScreen } from "@/screens/Home";
@@ -21,7 +22,9 @@ export default function BottomTabNavigator() {
   const { colorMode } = useColorMode();
   const { surface, background } = useTheme().colors;
   useFocusEffect(() => {
-    setBackgroundColorAsync(colorMode === "dark" ? background : surface);
+    if (Platform.OS === "android") {
+      setBackgroundColorAsync(colorMode === "dark" ? background : surface);
+    }
   });
   return (
     <Tab.Navigator

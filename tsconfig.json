@@ -2,6 +2,7 @@
   "extends": "eslint-config-react-native-wcandillon/tsconfig.base",
   "compilerOptions": {
     "baseUrl": ".",
+    "experimentalDecorators": true,
     "paths": {
       "@/*": ["./src/*"]
     }
