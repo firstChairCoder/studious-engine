@@ -5,11 +5,12 @@ import {
   tableSchema
 } from "@nozbe/watermelondb";
 
-import type Task from "./Task";
+import type Task from "./task";
+import type List from "./list";
 
 export const Tables = {
-  Task: tableName<Task>("task")
-  //   List: tableName<List>("list")
+  Task: tableName<Task>("task"),
+  List: tableName<List>("list")
 };
 
 export const Columns = {
@@ -31,13 +32,13 @@ export const Columns = {
 export default appSchema({
   version: 1,
   tables: [
-    // tableSchema({
-    //   name: Tables.List,
-    //   columns: [
-    //     { name: Columns.list.name, type: "string", isIndexed: true },
-    //     { name: Columns.list.theme, type: "string" }
-    //   ]
-    // }),
+    tableSchema({
+      name: Tables.List,
+      columns: [
+        { name: Columns.list.name, type: "string", isIndexed: true },
+        { name: Columns.list.theme, type: "string" }
+      ]
+    }),
     tableSchema({
       name: Tables.Task,
       columns: [

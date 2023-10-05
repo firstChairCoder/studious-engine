@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 
 import { Columns, Tables } from "./models/schema";
 import { database } from "./db";
-import type Task from "./models/Task";
+import type Task from "./models/task";
 
 type getTasksByDateProps = {
   from?: number;
