@@ -6,6 +6,7 @@ import type { RootStackParamList } from "./types";
 import BottomTabNavigator from "./BottomTabs";
 
 import { AddTaskScreen } from "@/screens/AddTask";
+import { OverviewScreen } from "@/screens/Overview";
 
 const { Navigator, Group, Screen } =
   createNativeStackNavigator<RootStackParamList>();
@@ -17,13 +18,13 @@ export function RootNavigator() {
     <Navigator>
       <Group screenOptions={{ headerShown: false }}>
         <Screen name="Root" component={BottomTabNavigator} />
-        {/* <Screen
+        <Screen
           options={{
             presentation: "modal"
           }}
           name="Overview"
-          component={Overview}
-        /> */}
+          component={OverviewScreen}
+        />
       </Group>
       <Screen
         options={{
