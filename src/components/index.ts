@@ -4,3 +4,7 @@ export { default as TaskCard } from "./task-card";
 export { default as Footer } from "./footer";
 export { default as Switch } from "./switch";
 export * from "./sub-tasks";
+export { default as LeftAccentCard } from "./left-accent-card";
+export { default as Backdrop } from "./backdrop";
+export { default as DateSeparator } from "./date-separator";
+export { default as SelectSheet } from "./select-sheet";

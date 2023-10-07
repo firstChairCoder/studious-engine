@@ -13,8 +13,11 @@ import {
   SettingsIcon
 } from "../../assets/tab-bar-icons";
 import type { RootTabParamList } from "./types";
+import ListStack from "./ListStack";
 
 import { HomeScreen } from "@/screens/Home";
+import { CalendarScreen } from "@/screens/Calendar";
+import { SettingsScreen } from "@/screens/Settings";
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 export default function BottomTabNavigator() {
@@ -56,7 +59,7 @@ export default function BottomTabNavigator() {
       />
       <Tab.Screen
         name="Lists"
-        component={HomeScreen}
+        component={ListStack}
         options={{
           tabBarIcon: (p) => <ListIcon {...p} />,
           lazy: false
@@ -64,14 +67,14 @@ export default function BottomTabNavigator() {
       />
       <Tab.Screen
         name="Calendar"
-        component={HomeScreen}
+        component={CalendarScreen}
         options={{
           tabBarIcon: (p) => <CalendarIcon {...p} />
         }}
       />
       <Tab.Screen
         name="Settings"
-        component={HomeScreen}
+        component={SettingsScreen}
         options={{
           tabBarIcon: (p) => <SettingsIcon {...p} />,
           headerShown: true,

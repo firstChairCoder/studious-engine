@@ -1,10 +1,10 @@
-// import "@/db/db";
+import "@/db/db";
 import "@/i18n/i18n";
 import { setNotificationHandler } from "expo-notifications";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore NO TYPESCRIPT d.ts
+// @ts-ignore
 import { connectToDevTools } from "react-devtools-core";
 import { enableFreeze } from "react-native-screens";
 
